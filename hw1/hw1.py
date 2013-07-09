@@ -16,10 +16,10 @@ p1_three_v_minus_two_u = [3 * y - 2 * x for x, y in zip(p1_u, p1_v)]
 ## Problem 2
 p2_u = [-1,  1, 1]
 p2_v = [ 2, -1, 5]
-p2_v_plus_u = [...]
-p2_v_minus_u = [...]
-p2_two_v_minus_u = [...]
-p2_v_plus_two_u = [...]
+p2_v_plus_u = [1, 0, 6]
+p2_v_minus_u = [3, -2, 4]
+p2_two_v_minus_u = [ 2*v - u for v, u in zip(p2_v, p2_u) ]
+p2_v_plus_two_u = [ v + 2 * u for v, u in zip(p2_v, p2_u) ]
 
 
 

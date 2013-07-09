@@ -1,4 +1,5 @@
 import heapq
+import itertools as it
 
 voting_data = list(open("voting_record_dump109.txt"))
 
@@ -157,5 +158,7 @@ def bitter_rivals(voting_dict):
         >>> bitter_rivals(voting_dict)
         ('Fox-Epstein', 'Ravella')
     """
-    return (..., ...)
+    people = voting_dict.keys()
+    return heapq.nsmallest(1, ((policy_compare(a, b, voting_dict), (a, b))
+                    for a, b in it.combinations(people, 2)))[0][1]
 

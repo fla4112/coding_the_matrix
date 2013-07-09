@@ -23,3 +23,12 @@ class One:
 
 one = One()
 zero = 0
+
+def parse_from_string(s):
+    return [one if i == '1' else zero for i in s]
+
+def sum_vector(*vecs):
+    return [sum(i) for i in zip(*vecs)]
+
+def dot_product(a, b):
+    return sum(i * j for i, j in zip(a, b))

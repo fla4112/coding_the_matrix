@@ -59,7 +59,7 @@ uv_d = -1
 
 ## Problem 7
 # use 'one' instead of '1'
-x_gf2 = [...]
+x_gf2 = [0, one, one, one]
 
 
 

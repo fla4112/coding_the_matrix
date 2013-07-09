@@ -1,6 +1,6 @@
 # Please fill out this stencil and submit using the provided submission script.
 
-from GF2 import one
+from GF2 import one, zero
 
 
 
@@ -25,8 +25,8 @@ p2_v_plus_two_u = [ v + 2 * u for v, u in zip(p2_v, p2_u) ]
 
 ## Problem 3
 # Write your answer using GF2's one instead of the number 1
-p3_vector_sum_1 = [...]
-p3_vector_sum_2 = [...]
+p3_vector_sum_1 = [one, zero, zero]
+p3_vector_sum_2 = [zero, one, one]
 
 
 

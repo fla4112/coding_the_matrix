@@ -101,9 +101,9 @@ def least_similar(sen, voting_dict):
     
 
 ## Task 5
-
-most_like_chafee    = ''
-least_like_santorum = '' 
+voting_dict = create_voting_dict()
+most_like_chafee    = most_similar('Chafee', voting_dict)
+least_like_santorum = least_similar('Santorum', voting_dict)
 
 
 
@@ -118,7 +118,7 @@ def find_average_similarity(sen, sen_set, voting_dict):
         >>> find_average_similarity('Klein', {'Fox-Epstein','Ravella'}, vd)
         -0.5
     """
-    return ...
+    return sum(policy_compare(sen, p, voting_dict) for p in sen_set) / len(sen_set)
 
 most_average_Democrat = ... # give the last name (or code that computes the last name)
 

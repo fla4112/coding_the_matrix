@@ -7,9 +7,9 @@ from GF2 import one
 ## Problem 1
 p1_u = [ 0, 4]
 p1_v = [-1, 3]
-p1_v_plus_u = [...]
-p1_v_minus_u = [...]
-p1_three_v_minus_two_u = [...]
+p1_v_plus_u = [x + y for x, y in zip(p1_u, p1_v)]
+p1_v_minus_u = [y - x for x, y in zip(p1_u, p1_v)]
+p1_three_v_minus_two_u = [3 * y - 2 * x for x, y in zip(p1_u, p1_v)]
 
 
 

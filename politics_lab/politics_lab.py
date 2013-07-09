@@ -139,9 +139,9 @@ def find_average_record(sen_set, voting_dict):
         >>> find_average_record({'Fox-Epstein','Ravella'}, voting_dict)
         [-0.5, -0.5, 0.0]
     """
-    return ...
+    return [sum(i)/len(sen_set) for i in zip(*[voting_dict[p] for p in sen_set])]
 
-average_Democrat_record = ... # (give the vector)
+average_Democrat_record = find_average_record(democrats, voting_dict) # (give the vector)
 
 
 # Task 8

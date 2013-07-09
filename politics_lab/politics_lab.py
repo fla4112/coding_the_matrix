@@ -1,3 +1,5 @@
+import heapq
+
 voting_data = list(open("voting_record_dump109.txt"))
 
 ## Task 1
@@ -93,7 +95,6 @@ def least_similar(sen, voting_dict):
     people = set(voting_dict.keys())
     people.remove(sen)
 
-    import heapq
     return heapq.nsmallest(1, ((policy_compare(sen, other, voting_dict), other) 
                               for other in people))[0][1]
  
@@ -120,7 +121,10 @@ def find_average_similarity(sen, sen_set, voting_dict):
     """
     return sum(policy_compare(sen, p, voting_dict) for p in sen_set) / len(sen_set)
 
-most_average_Democrat = ... # give the last name (or code that computes the last name)
+party_info = [l.split()[:2] for l in voting_data]
+democrats = {n for n, p in party_info if p == 'D'}
+others = {n for n, p in party_info if p != 'D'}
+most_average_Democrat = heapq.nlargest(1, ((find_average_similarity(o, democrats, voting_dict), o) for o in others))[0][1] # give the last name (or code that computes the last name)
 
 
 # Task 7

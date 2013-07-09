@@ -51,7 +51,7 @@ def policy_compare(sen_a, sen_b, voting_dict):
         >>> policy_compare('Fox-Epstein','Ravella', voting_dict)
         -2
     """
-    return 0.0
+    return sum(a * b for a, b in zip(voting_dict[sen_a], voting_dict[sen_b]))
 
 
 ## Task 3
@@ -70,9 +70,12 @@ def most_similar(sen, voting_dict):
 
     Note that you can (and are encouraged to) re-use you policy_compare procedure.
     """
-    
-    return ""
-    
+    people = set(voting_dict.keys())
+    people.remove(sen)
+
+    import heapq
+    return heapq.nlargest(1, ((policy_compare(sen, other, voting_dict), other) 
+                              for other in people))[0][1]
 
 ## Task 4
 
@@ -87,7 +90,13 @@ def least_similar(sen, voting_dict):
         >>> least_similar('Klein', vd)
         'Ravella'
     """
-    return ""
+    people = set(voting_dict.keys())
+    people.remove(sen)
+
+    import heapq
+    return heapq.nsmallest(1, ((policy_compare(sen, other, voting_dict), other) 
+                              for other in people))[0][1]
+ 
     
     
 
